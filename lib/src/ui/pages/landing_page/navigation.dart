@@ -54,7 +54,7 @@ class Navigation extends StatelessWidget {
                 textSize: 20,
                 onTap: () async {
                   await FirebaseAnalyticsUtils.analytics.logEvent(name: 'landing_page__login_button_clicked');
-                  Navigator.pushNamed(context, RootPage.routeName);
+                  await Navigator.pushNamed(context, RootPage.routeName);
                 },
               ),
             ),).showCursorOnHover

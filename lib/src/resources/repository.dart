@@ -11,6 +11,7 @@ class Repository {
 
   /// Authentication
   Stream<FirebaseUser> get onAuthStateChange => _authResources.onAuthStateChange;
+  Future<FirebaseUser> get firebaseUser => _authResources.firebaseUser;
   Future<BasicResponse> loginWithEmailAndPassword(String email, String password) => _authResources.loginWithEmailAndPassword(email, password);
   Future<BasicResponse> signUpWithEmailAndPassword(String email, String password) => _authResources.signUpWithEmailAndPassword(email, password);
   Future<void> signOut() => _authResources.signOut;

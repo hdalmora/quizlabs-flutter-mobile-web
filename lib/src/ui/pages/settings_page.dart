@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizlabsmock/src/blocs/user_bloc/user_bloc.dart';
 import 'package:quizlabsmock/src/blocs/user_bloc/user_bloc_provider.dart';
+import 'package:quizlabsmock/src/ui/pages/landing_page/landing_page.dart';
 import 'package:quizlabsmock/src/ui/widgets/app_bar.dart';
 import 'package:quizlabsmock/src/ui/widgets/button_main.dart';
 import 'package:quizlabsmock/src/utils/color_utils.dart';
@@ -116,7 +117,7 @@ class _SettingPageState extends State<SettingsPage> {
                     await FirebaseAnalyticsUtils.analytics.logEvent(name: 'settings_page__logout_button_clicked');
 
                     _userBloc.signOut();
-                    Navigator.of(context).pop();
+                    Navigator.of(context).pushReplacementNamed(LandingPage.routeName);
                   },
                 ),
               ),

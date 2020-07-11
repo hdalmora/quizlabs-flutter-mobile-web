@@ -8,6 +8,7 @@ import 'package:quizlabsmock/src/blocs/user_bloc/user_bloc_provider.dart';
 import 'package:quizlabsmock/src/models/user.dart';
 import 'package:quizlabsmock/src/ui/pages/home_page/ranking/ranking_tab.dart';
 import 'package:quizlabsmock/src/ui/pages/home_page/statistics/statistics_tab.dart';
+import 'package:quizlabsmock/src/ui/pages/landing_page/landing_page.dart';
 import 'package:quizlabsmock/src/ui/pages/trivia_page/trivia_page.dart';
 import 'package:quizlabsmock/src/ui/widgets/button_main.dart';
 import 'package:quizlabsmock/src/ui/widgets/form_field_main.dart';
@@ -347,6 +348,27 @@ class _HomePageState extends State<HomePage> {
     child: user != null ? Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
+        GestureDetector(
+          onTap: () {
+          },
+          child: Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
+                gradient: LinearGradient(colors: [
+                  ColorUtils.BLUE_LIGHT,
+                  ColorUtils.BLUE_MAIN,
+                ], begin: Alignment.bottomRight, end: Alignment.centerLeft)),
+            child: Center(
+              child: Text("QL",
+                  style: TextStyle(fontSize: 30, color: Colors.white)),
+            ),
+          ),
+        ),
+
+        SizedBox(width: 35,),
+
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

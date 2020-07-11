@@ -23,7 +23,6 @@ class _RootPageState extends State<RootPage> {
   void initState() {
     _currentUser = _repository.onAuthStateChange;
     print("Root");
-//    _repository.signOut();
     super.initState();
   }
 

@@ -21,6 +21,8 @@ class AuthResources {
 
   Stream<FirebaseUser> get onAuthStateChange => _firebaseAuth.onAuthStateChanged;
 
+  Future<FirebaseUser> get firebaseUser => _firebaseAuth.currentUser();
+
   Future<BasicResponse> loginWithEmailAndPassword(String email, String password) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(

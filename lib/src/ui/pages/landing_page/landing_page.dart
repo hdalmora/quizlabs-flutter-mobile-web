@@ -119,7 +119,7 @@ class LargeChild extends StatelessWidget {
                         textSize: 23,
                         onTap: () async {
                           await FirebaseAnalyticsUtils.analytics.logEvent(name: 'landing_page__play_now_button_clicked');
-                          Navigator.pushNamed(context, RootPage.routeName);
+                          await Navigator.pushNamed(context, RootPage.routeName);
                         },
                       ),
                     ),),
@@ -215,7 +215,7 @@ class SmallChild extends StatelessWidget {
                   textSize: 18,
                   onTap: () async {
                     await FirebaseAnalyticsUtils.analytics.logEvent(name: 'landing_page__play_now_button_clicked');
-                    Navigator.pushNamed(context, RootPage.routeName);
+                    await Navigator.pushNamed(context, RootPage.routeName);
                   },
                 ),
               ),),
