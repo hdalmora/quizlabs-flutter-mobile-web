@@ -5,6 +5,7 @@ import 'package:quizlabsmock/src/blocs/auth_bloc/auth_bloc.dart';
 import 'package:quizlabsmock/src/blocs/auth_bloc/auth_bloc_provider.dart';
 import 'package:quizlabsmock/src/blocs/loading_bloc/loading_bloc.dart';
 import 'package:quizlabsmock/src/models/basic_response.dart';
+import 'package:quizlabsmock/src/ui/pages/landing_page/landing_page.dart';
 import 'package:quizlabsmock/src/ui/widgets/button_main.dart';
 import 'package:quizlabsmock/src/ui/widgets/form_field_main.dart';
 import 'package:quizlabsmock/src/utils/color_utils.dart';
@@ -13,7 +14,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:quizlabsmock/src/utils/firebase_analytics_utils.dart';
 
 class AuthPage extends StatefulWidget {
-  static const String routeName = 'auth_page';
 
   @override
   _AuthPageState createState() => _AuthPageState();
@@ -49,12 +49,17 @@ class _AuthPageState extends State<AuthPage> {
           children: <Widget>[
 
             SizedBox(height: Constants.mediaHeight(context)*.1,),
-            Container(
-              child: Text(
-                "QuizLabs",
-                style: Theme.of(context).textTheme.headline4.copyWith(
-                    color: ColorUtils.BLUE_MAIN,
-                    fontWeight: FontWeight.bold
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed(LandingPage.routeName);
+              },
+              child: Container(
+                child: Text(
+                  "QuizLabs",
+                  style: Theme.of(context).textTheme.headline4.copyWith(
+                      color: ColorUtils.BLUE_MAIN,
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
               ),
             ),

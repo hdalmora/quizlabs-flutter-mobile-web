@@ -18,7 +18,6 @@ import 'package:quizlabsmock/src/utils/firebase_analytics_utils.dart';
 import '../settings_page.dart';
 
 class HomePage extends StatefulWidget {
-  static const String routeName = 'home_page';
 
   final String userUUID;
 
@@ -283,8 +282,9 @@ class _HomePageState extends State<HomePage> {
                                           onTap: () async {
                                             await FirebaseAnalyticsUtils.analytics.logEvent(name: 'home_page__trivia_game_start_button_clicked');
 
-                                            Navigator.of(context).pop();
-                                            Navigator.of(context).pushNamed(TriviaPage.routeName, arguments: {'userUUID': userUUID});
+                                            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                              builder: (context) => TriviaPage(userUUID: userUUID)
+                                            ));
                                           },
                                         )
                                       ],
@@ -493,7 +493,9 @@ class _HomePageState extends State<HomePage> {
                   onTap: () async {
                     await FirebaseAnalyticsUtils.analytics.logEvent(name: 'home_page__settings_button_clicked');
 
-                    Navigator.of(context).pushNamed(SettingsPage.routeName);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => SettingsPage()
+                    ));
                   },
                   child: Container(
                     alignment: Alignment.bottomRight,

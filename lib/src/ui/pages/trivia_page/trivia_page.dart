@@ -10,13 +10,21 @@ import 'package:quizlabsmock/src/utils/constants.dart';
 import 'package:quizlabsmock/src/utils/firebase_analytics_utils.dart';
 
 class TriviaPage extends StatefulWidget {
-  static const String routeName = 'quiz_page';
+
+  final String userUUID;
+
+  const TriviaPage({Key key, @required this.userUUID}) : super(key: key);
 
   @override
-  _TriviaPageState createState() => _TriviaPageState();
+  _TriviaPageState createState() => _TriviaPageState(userUUID: userUUID);
 }
 
 class _TriviaPageState extends State<TriviaPage> {
+
+  String userUUID;
+
+  _TriviaPageState({this.userUUID});
+
   TriviaBloc _triviaBloc;
 
   Future<List<Trivia>> _triviaFuture;
@@ -44,14 +52,6 @@ class _TriviaPageState extends State<TriviaPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Map arguments = ModalRoute.of(context).settings.arguments as Map;
-
-    String userUUID = "";
-
-    if (arguments != null) {
-      userUUID = arguments['userUUID'];
-      print('USER UUID: $userUUID');
-    }
 
     return Scaffold(
       backgroundColor: Colors.white,

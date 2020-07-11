@@ -50,7 +50,7 @@ class _RootPageState extends State<RootPage> {
       child: StreamBuilder<FirebaseUser>(
         stream: _currentUser,
         builder: (BuildContext context, AsyncSnapshot<FirebaseUser> snapshot) {
-          return snapshot.hasData ? HomePage(userUUID: snapshot.data != null ? snapshot.data.uid : null,) : LandingPage();
+          return snapshot.hasData ? HomePage(userUUID: snapshot.data != null ? snapshot.data.uid : null,) : AuthPage();
         },
       ),
     );

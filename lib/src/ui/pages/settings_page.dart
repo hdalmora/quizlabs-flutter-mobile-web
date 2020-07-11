@@ -8,7 +8,6 @@ import 'package:quizlabsmock/src/utils/constants.dart';
 import 'package:quizlabsmock/src/utils/firebase_analytics_utils.dart';
 
 class SettingsPage extends StatefulWidget {
-  static const String routeName = 'settings_page';
 
   @override
   _SettingPageState createState() => _SettingPageState();

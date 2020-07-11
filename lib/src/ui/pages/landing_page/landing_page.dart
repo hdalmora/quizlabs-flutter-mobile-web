@@ -6,6 +6,7 @@ import 'package:quizlabsmock/src/ui/widgets/responsive_layout.dart';
 import 'package:quizlabsmock/src/utils/color_utils.dart';
 import 'package:quizlabsmock/src/utils/firebase_analytics_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../../root_page.dart';
 import 'navigation.dart';
 
 class LandingPage extends StatefulWidget {
@@ -118,7 +119,7 @@ class LargeChild extends StatelessWidget {
                         textSize: 23,
                         onTap: () async {
                           await FirebaseAnalyticsUtils.analytics.logEvent(name: 'landing_page__play_now_button_clicked');
-                          Navigator.pushNamed(context, AuthPage.routeName);
+                          Navigator.pushNamed(context, RootPage.routeName);
                         },
                       ),
                     ),),
@@ -214,7 +215,7 @@ class SmallChild extends StatelessWidget {
                   textSize: 18,
                   onTap: () async {
                     await FirebaseAnalyticsUtils.analytics.logEvent(name: 'landing_page__play_now_button_clicked');
-                    Navigator.pushNamed(context, AuthPage.routeName);
+                    Navigator.pushNamed(context, RootPage.routeName);
                   },
                 ),
               ),),

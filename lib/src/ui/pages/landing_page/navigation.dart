@@ -5,6 +5,8 @@ import 'package:quizlabsmock/src/utils/color_utils.dart';
 import 'package:quizlabsmock/src/utils/firebase_analytics_utils.dart';
 import 'package:quizlabsmock/src/ui/extensions/hover_extension.dart';
 
+import '../../../root_page.dart';
+
 class Navigation extends StatelessWidget {
 
   @override
@@ -52,7 +54,7 @@ class Navigation extends StatelessWidget {
                 textSize: 20,
                 onTap: () async {
                   await FirebaseAnalyticsUtils.analytics.logEvent(name: 'landing_page__login_button_clicked');
-                  Navigator.pushNamed(context, AuthPage.routeName);
+                  Navigator.pushNamed(context, RootPage.routeName);
                 },
               ),
             ),).showCursorOnHover
