@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:faker/faker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:quizlabsmock/src/models/basic_response.dart';
 
 class AuthResponse {
@@ -18,7 +17,6 @@ class AuthResponse {
 
 class AuthResources {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
   final Firestore _firestore = Firestore.instance;
 
   Stream<FirebaseUser> get onAuthStateChange => _firebaseAuth.onAuthStateChanged;
@@ -108,6 +106,5 @@ class AuthResources {
 
   Future<void> get signOut async {
     _firebaseAuth.signOut();
-    _googleSignIn.signOut();
   }
 }

@@ -5,7 +5,6 @@ import 'package:quizlabsmock/src/ui/widgets/app_bar.dart';
 import 'package:quizlabsmock/src/ui/widgets/button_main.dart';
 import 'package:quizlabsmock/src/utils/color_utils.dart';
 import 'package:quizlabsmock/src/utils/constants.dart';
-import 'package:quizlabsmock/src/utils/custom_url_utils.dart';
 import 'package:quizlabsmock/src/utils/firebase_analytics_utils.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -98,8 +97,6 @@ class _SettingPageState extends State<SettingsPage> {
               trailing: Icon(Icons.chevron_right),
               onTap: () async {
                 await FirebaseAnalyticsUtils.analytics.logEvent(name: 'settings_page__feature_suggestion_button_clicked');
-
-                CustomUrlUtils.launchURL(context, 'https://forms.gle/E6rwNo7vfJUka6mb9');
               },
             ),
 

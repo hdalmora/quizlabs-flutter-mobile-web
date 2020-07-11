@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="QuizLabs is a fun Trivia game Quiz with fun questions about anything">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="quiz_labs_mock">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
+  <title>QuizLabs - A simple Trivia game</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyBJ9_HtQlRHkrjm8P1wver3SsX3lR8KzDM",
+      authDomain: "quizlabs-92828.firebaseapp.com",
+      databaseURL: "https://quizlabs-92828.firebaseio.com",
+      projectId: "quizlabs-92828",
+      storageBucket: "quizlabs-92828.appspot.com",
+      messagingSenderId: "536520520508",
+      appId: "1:536520520508:web:f4fdd226c5a287317aa439",
+      measurementId: "G-FESPXJWPST"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+  <script src="main.dart.js" type="application/javascript"></script>
+</body>
+</html>

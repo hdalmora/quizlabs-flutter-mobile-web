@@ -1,4 +1,3 @@
-import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:quizlabsmock/src/blocs/trivia_bloc/trivia_bloc.dart';
 import 'package:quizlabsmock/src/blocs/trivia_bloc/trivia_bloc_provider.dart';
@@ -6,7 +5,6 @@ import 'package:quizlabsmock/src/models/question_selected.dart';
 import 'package:quizlabsmock/src/resources/rest_client.dart';
 import 'package:quizlabsmock/src/ui/widgets/app_bar.dart';
 import 'package:quizlabsmock/src/ui/widgets/button_main.dart';
-import 'package:quizlabsmock/src/utils/ad_manager.dart';
 import 'package:quizlabsmock/src/utils/color_utils.dart';
 import 'package:quizlabsmock/src/utils/constants.dart';
 import 'package:quizlabsmock/src/utils/firebase_analytics_utils.dart';
@@ -25,30 +23,6 @@ class _TriviaPageState extends State<TriviaPage> {
 
   bool _canSelect = true;
 
-  InterstitialAd _interstitialAd;
-
-  bool _isInterstitialAdReady;
-
-  void _loadInterstitialAd() {
-    _interstitialAd.load();
-  }
-
-  int answersCount = 0;
-
-  void _onInterstitialAdEvent(MobileAdEvent event) {
-    switch (event) {
-      case MobileAdEvent.loaded:
-        _isInterstitialAdReady = true;
-        break;
-      case MobileAdEvent.failedToLoad:
-        _isInterstitialAdReady = false;
-        print('Failed to load an interstitial ad');
-        break;
-      default:
-      // do nothing
-    }
-  }
-
   @override
   void didChangeDependencies() {
     _triviaBloc = TriviaBlocProvider.of(context);
@@ -59,12 +33,6 @@ class _TriviaPageState extends State<TriviaPage> {
   @override
   void initState() {
     _canSelect = true;
-    _isInterstitialAdReady = false;
-
-    _interstitialAd = InterstitialAd(
-      adUnitId: AdManager.interstitialAdUnitId,
-      listener: _onInterstitialAdEvent,
-    );
     super.initState();
   }
 
@@ -383,17 +351,6 @@ class _TriviaPageState extends State<TriviaPage> {
                                                       await Future.delayed(Duration(seconds: 2));
                                                       _triviaBloc.removeTriviaQuestionAndGoToNext(currentTriviaQuestion);
                                                       _canSelect = true;
-
-
-                                                      answersCount += 1;
-                                                      if(answersCount >= 7 && !_isInterstitialAdReady) {
-                                                        _loadInterstitialAd();
-                                                      }
-
-                                                      if(answersCount >= 10 && _isInterstitialAdReady) {
-                                                        answersCount = 0;
-                                                        _interstitialAd.show();
-                                                      }
                                                     },
                                                   ),
                                                 ),
@@ -480,16 +437,6 @@ class _TriviaPageState extends State<TriviaPage> {
                                                       await Future.delayed(Duration(seconds: 2));
                                                       _triviaBloc.removeTriviaQuestionAndGoToNext(currentTriviaQuestion);
                                                       _canSelect = true;
-
-                                                      answersCount += 1;
-                                                      if(answersCount >= 7 && !_isInterstitialAdReady) {
-                                                        _loadInterstitialAd();
-                                                      }
-
-                                                      if(answersCount >= 10 && _isInterstitialAdReady) {
-                                                        answersCount = 0;
-                                                        _interstitialAd.show();
-                                                      }
                                                     },
                                                   ),
                                                 ),
@@ -576,16 +523,6 @@ class _TriviaPageState extends State<TriviaPage> {
                                                       await Future.delayed(Duration(seconds: 2));
                                                       _triviaBloc.removeTriviaQuestionAndGoToNext(currentTriviaQuestion);
                                                       _canSelect = true;
-
-                                                      answersCount += 1;
-                                                      if(answersCount >= 7 && !_isInterstitialAdReady) {
-                                                        _loadInterstitialAd();
-                                                      }
-
-                                                      if(answersCount >= 10 && _isInterstitialAdReady) {
-                                                        answersCount = 0;
-                                                        _interstitialAd.show();
-                                                      }
                                                     },
                                                   ),
                                                 ),
@@ -672,16 +609,6 @@ class _TriviaPageState extends State<TriviaPage> {
                                                       await Future.delayed(Duration(seconds: 2));
                                                       _triviaBloc.removeTriviaQuestionAndGoToNext(currentTriviaQuestion);
                                                       _canSelect = true;
-
-                                                      answersCount += 1;
-                                                      if(answersCount >= 7 && !_isInterstitialAdReady) {
-                                                        _loadInterstitialAd();
-                                                      }
-
-                                                      if(answersCount >= 10 && _isInterstitialAdReady) {
-                                                        answersCount = 0;
-                                                        _interstitialAd.show();
-                                                      }
                                                     },
                                                   ),
                                                 ),
@@ -783,16 +710,6 @@ class _TriviaPageState extends State<TriviaPage> {
                                                     await Future.delayed(Duration(seconds: 2));
                                                     _triviaBloc.removeTriviaQuestionAndGoToNext(currentTriviaQuestion);
                                                     _canSelect = true;
-
-                                                    answersCount += 1;
-                                                    if(answersCount >= 7 && !_isInterstitialAdReady) {
-                                                      _loadInterstitialAd();
-                                                    }
-
-                                                    if(answersCount >= 10 && _isInterstitialAdReady) {
-                                                      answersCount = 0;
-                                                      _interstitialAd.show();
-                                                    }
                                                   },
                                                 ),
                                               ),
@@ -877,16 +794,6 @@ class _TriviaPageState extends State<TriviaPage> {
                                                     await Future.delayed(Duration(seconds: 2));
                                                     _triviaBloc.removeTriviaQuestionAndGoToNext(currentTriviaQuestion);
                                                     _canSelect = true;
-
-                                                    answersCount += 1;
-                                                    if(answersCount >= 7 && !_isInterstitialAdReady) {
-                                                      _loadInterstitialAd();
-                                                    }
-
-                                                    if(answersCount >= 10 && _isInterstitialAdReady) {
-                                                      answersCount = 0;
-                                                      _interstitialAd.show();
-                                                    }
                                                   },
                                                 ),
                                               ),

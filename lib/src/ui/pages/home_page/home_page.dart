@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -12,7 +11,6 @@ import 'package:quizlabsmock/src/ui/pages/home_page/statistics/statistics_tab.da
 import 'package:quizlabsmock/src/ui/pages/trivia_page/trivia_page.dart';
 import 'package:quizlabsmock/src/ui/widgets/button_main.dart';
 import 'package:quizlabsmock/src/ui/widgets/form_field_main.dart';
-import 'package:quizlabsmock/src/utils/ad_manager.dart';
 import 'package:quizlabsmock/src/utils/color_utils.dart';
 import 'package:quizlabsmock/src/utils/constants.dart';
 import 'package:quizlabsmock/src/utils/firebase_analytics_utils.dart';
@@ -44,14 +42,6 @@ class _HomePageState extends State<HomePage> {
 
   UserBloc _userBloc;
 
-  BannerAd _bannerAd;
-
-  void _loadBannerAd() {
-    _bannerAd
-      ..load()
-      ..show(anchorType: AnchorType.top);
-  }
-
   @override
   void didChangeDependencies() {
     _userBloc = UserBlocProvider.of(context);
@@ -62,7 +52,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void dispose() {
     _userBloc.dispose();
-    _bannerAd?.dispose();
     super.dispose();
   }
 
@@ -73,13 +62,6 @@ class _HomePageState extends State<HomePage> {
         BlocProvider.of<LoadingBloc>(context).add(EndLoad());
       }
     });
-
-    _bannerAd = BannerAd(
-      adUnitId: AdManager.bannerAdUnitId,
-      size: AdSize.banner,
-    );
-
-    _loadBannerAd();
     super.initState();
   }
 

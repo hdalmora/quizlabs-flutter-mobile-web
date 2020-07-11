@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:quizlabsmock/src/blocs/auth_bloc/auth_bloc_provider.dart';
 import 'package:quizlabsmock/src/blocs/trivia_bloc/trivia_bloc_provider.dart';
 import 'package:quizlabsmock/src/root_page.dart';
@@ -11,7 +10,6 @@ import 'package:quizlabsmock/src/ui/pages/trivia_page/trivia_page.dart';
 import 'package:quizlabsmock/src/utils/color_utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:quizlabsmock/src/utils/firebase_analytics_utils.dart';
-
 import 'blocs/loading_bloc/loading_bloc.dart';
 import 'blocs/user_bloc/user_bloc_provider.dart';
 
@@ -37,9 +35,6 @@ class QuizLabs extends StatelessWidget {
               theme: ThemeData(
                 primaryColor: ColorUtils.BLUE_MAIN,
                 accentColor: ColorUtils.BLUE_ACCENT,
-                textTheme: GoogleFonts.robotoTextTheme(
-                  Theme.of(context).textTheme,
-                ),
               ),
               initialRoute: RootPage.routeName,
               routes: {
