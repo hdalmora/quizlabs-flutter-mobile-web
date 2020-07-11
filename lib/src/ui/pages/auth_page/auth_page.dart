@@ -74,15 +74,36 @@ class _AuthPageState extends State<AuthPage> {
             padding: EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                SizedBox(height: Constants.mediaHeight(context)*.05,),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    margin: EdgeInsets.only(left: Constants.mediaWidth(context)*.19),
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(18),
+                        gradient: LinearGradient(colors: [
+                          ColorUtils.BLUE_LIGHT,
+                          ColorUtils.BLUE_MAIN,
+                        ], begin: Alignment.bottomRight, end: Alignment.centerLeft)),
+                    child: Center(
+                      child: Text("QL",
+                          style: TextStyle(fontSize: 30, color: Colors.white)),
+                    ),
+                  ),
+                ),
 
-                SizedBox(height: Constants.mediaHeight(context)*.1,),
+                SizedBox(height: Constants.mediaHeight(context)*.05,),
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushNamed(LandingPage.routeName);
                   },
                   child: Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.only(left: Constants.mediaWidth(context)*.19),
                     child: Text(
                       "QuizLabs",
                       style: Theme.of(context).textTheme.headline4.copyWith(
@@ -94,31 +115,37 @@ class _AuthPageState extends State<AuthPage> {
                 ),
 
                 SizedBox(height: Constants.mediaHeight(context)*.025,),
-                StreamBuilder(
-                  stream: _authBloc.email,
-                  builder: (context, snapshot) {
-                    return FormFieldMain(
-                      hintText: 'email_form'.tr(),
-                      onChanged: _authBloc.changeEmail,
-                      textInputType: TextInputType.text,
-                      obscured: false,
-                      errorText: snapshot.error,
-                    );
-                  },
+                Container(
+                  width: Constants.mediaWidth(context)*.6,
+                  child: StreamBuilder(
+                    stream: _authBloc.email,
+                    builder: (context, snapshot) {
+                      return FormFieldMain(
+                        hintText: 'email_form'.tr(),
+                        onChanged: _authBloc.changeEmail,
+                        textInputType: TextInputType.text,
+                        obscured: false,
+                        errorText: snapshot.error,
+                      );
+                    },
+                  ),
                 ),
 
                 SizedBox(height: Constants.mediaHeight(context)*.025,),
-                StreamBuilder(
-                  stream: _authBloc.password,
-                  builder: (context, snapshot) {
-                    return FormFieldMain(
-                      hintText: 'password_form'.tr(),
-                      onChanged: _authBloc.changePassword,
-                      textInputType: TextInputType.text,
-                      obscured: true,
-                      errorText: snapshot.error,
-                    );
-                  },
+                Container(
+                  width: Constants.mediaWidth(context)*.6,
+                  child: StreamBuilder(
+                    stream: _authBloc.password,
+                    builder: (context, snapshot) {
+                      return FormFieldMain(
+                        hintText: 'password_form'.tr(),
+                        onChanged: _authBloc.changePassword,
+                        textInputType: TextInputType.text,
+                        obscured: true,
+                        errorText: snapshot.error,
+                      );
+                    },
+                  ),
                 ),
 
                 SizedBox(height: Constants.mediaHeight(context)*.05,),
@@ -128,11 +155,12 @@ class _AuthPageState extends State<AuthPage> {
 
                     Builder(builder: (BuildContext context) {
                       return ButtonMain(
-                        width: 100,
-                        height: 50,
+                        width: 140,
+                        height: 65,
                         colorMain: ColorUtils.BLUE_ACCENT,
                         colorSec: ColorUtils.BLUE_LIGHT,
                         text: "login_btn".tr(),
+                        textSize: 22,
                         onTap: () async {
                           await FirebaseAnalyticsUtils.analytics.logEvent(name: 'auth_page__login_button_clicked');
 
@@ -182,11 +210,12 @@ class _AuthPageState extends State<AuthPage> {
                     SizedBox(width: Constants.mediaWidth(context)*.065,),
                     Builder(builder: (BuildContext context) {
                       return ButtonMain(
-                        width: 100,
-                        height: 50,
+                        width: 140,
+                        height: 65,
                         colorMain: ColorUtils.GREEN_MAIN,
                         colorSec: ColorUtils.GREEN_LIGHT,
                         text: "register_btn".tr(),
+                        textSize: 22,
                         onTap: () async {
                           await FirebaseAnalyticsUtils.analytics.logEvent(name: 'auth_page__register_button_clicked');
 
