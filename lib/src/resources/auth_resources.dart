@@ -5,14 +5,14 @@ import 'package:flutter/services.dart';
 import 'package:quizlabsmock/src/models/basic_response.dart';
 
 class AuthResponse {
-  static const ERROR_INVALID_EMAIL = "ERROR_INVALID_EMAIL";
-  static const ERROR_WRONG_PASSWORD = "ERROR_WRONG_PASSWORD";
-  static const ERROR_USER_NOT_FOUND = "ERROR_USER_NOT_FOUND";
-  static const ERROR_USER_DISABLED = "ERROR_USER_DISABLED";
-  static const ERROR_TOO_MANY_REQUESTS = "ERROR_TOO_MANY_REQUESTS";
-  static const ERROR_OPERATION_NOT_ALLOWED = "ERROR_OPERATION_NOT_ALLOWED";
-  static const ERROR_WEAK_PASSWORD = "ERROR_WEAK_PASSWORD";
-  static const ERROR_EMAIL_ALREADY_IN_USE = "ERROR_EMAIL_ALREADY_IN_USE";
+  static const ERROR_INVALID_EMAIL = "auth/invalid-email";
+  static const ERROR_WRONG_PASSWORD = "auth/wrong-password";
+  static const ERROR_USER_NOT_FOUND = "auth/user-not-found";
+  static const ERROR_USER_DISABLED = "auth/user-disabled";
+  static const ERROR_TOO_MANY_REQUESTS = "auth/too-many-requests";
+  static const ERROR_OPERATION_NOT_ALLOWED = "auth/operation-not-allowed";
+  static const ERROR_WEAK_PASSWORD = "auth/weak-password";
+  static const ERROR_EMAIL_ALREADY_IN_USE = "auth/email-already-in-use";
 }
 
 class AuthResources {
@@ -28,8 +28,8 @@ class AuthResources {
 
 
       return BasicResponse(success: true, message: "auth_success");
-    } on PlatformException catch (e) {
-      print("Platform Exception: Authentication: " + e.toString());
+    } catch (e) {
+      print("Exception: Error: " + e.toString());
 
       switch(e.code) {
         case AuthResponse.ERROR_INVALID_EMAIL:
@@ -47,10 +47,6 @@ class AuthResources {
         default:
           return BasicResponse(success: false, message: "unknown_error_auth");
       }
-
-    } catch (e) {
-      print("Exception: Error: " + e.toString());
-      return BasicResponse(success: false, message: "unknown_error_auth");
     }
   }
 
@@ -66,8 +62,8 @@ class AuthResources {
       await createUserProfile(authResult.user, displayName);
 
       return BasicResponse(success: true, message: "auth_success");
-    } on PlatformException catch (e) {
-      print("Platform Exception: Authentication: " + e.toString());
+    } catch (e) {
+      print("Exception: Authentication: " + e.code);
 
       switch(e.code) {
         case AuthResponse.ERROR_WEAK_PASSWORD:
@@ -79,9 +75,6 @@ class AuthResources {
         default:
           return BasicResponse(success: false, message: "unknown_error_auth");
       }
-    } catch (e) {
-      print("Exception: Authentication: " + e.toString());
-      return BasicResponse(success: false, message: "unknown_error_auth");
     }
   }
 
