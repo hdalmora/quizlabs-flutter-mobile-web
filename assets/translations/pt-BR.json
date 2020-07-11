@@ -1,0 +1,22 @@
+{
+  "email_form": "Email...",
+  "password_form": "Password...",
+  "login_btn": "Login",
+  "register_btn": "Register",
+  "continue_anonymously_btn": "Continue Anonymously",
+  "fill_form_correctly": "Heey, you must fill the fields correctly ;D",
+  "auth_success": "Nice! We are logging you in ;D",
+  "auth_failed_invalid_email": "Oops, this email is not formatted properly :O. Please, could you try it again?",
+  "auth_failed_wrong_password": "Oops, this is not the correct password :O",
+  "auth_failed_user_not_found": "Ouch!! This email don't belong to us yet ;(",
+  "auth_failed_user_disabled": "Humm, it seems this email is not yet activated.",
+  "auth_failed_too_many_requests": "Sorry, it seems our servers are too busy right now ;(",
+  "auth_failed_operation_not_allowed": "Heey! This operation is not allowed! :O",
+  "unknown_error_auth": "Sorry, we encountered an error during the process, If it persists, please contact us.",
+  "auth_failed_weak_password": "Oops, this password is to weak ;/. Send him to the GYM and come back ;D",
+  "auth_failed_email_already_in_use": "Ouch!! This email is already in use :O",
+  "discover": "Discover",
+  "search_quizzes": "Search Quizzes",
+  "popular": "Popular",
+  "recents": "Recents"
+}

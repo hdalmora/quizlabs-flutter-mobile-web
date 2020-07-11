@@ -1,0 +1,46 @@
+name: quizlabsmock
+description: A new Flutter application.
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cloud_firestore: ^0.13.7
+  firebase_auth: ^0.16.1
+  google_sign_in: ^4.5.1
+  google_fonts: ^1.1.0
+  flutter_bloc: ^4.0.1
+  rxdart: ^0.24.1
+  flutter_icons: ^1.1.0
+  easy_localization: ^2.3.2
+  faker: ^1.2.1
+  flutter_sparkline: ^0.1.0
+  retrofit: ^1.3.4
+  json_annotation: ^3.0.1
+  logger:
+  html_unescape: ^1.0.1+3
+  flutter_custom_tabs: ^0.6.0
+  firebase_admob: ^0.9.3+2
+  firebase_analytics: ^5.0.16
+
+  cupertino_icons: ^0.1.3
+
+dev_dependencies:
+  retrofit_generator:
+  build_runner: ^1.0.0
+  json_serializable: ^3.2.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  assets:
+    - assets/translations/
+    - assets/images/
+
+  uses-material-design: true
