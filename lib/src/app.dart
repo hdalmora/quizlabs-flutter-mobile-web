@@ -5,6 +5,7 @@ import 'package:quizlabsmock/src/blocs/trivia_bloc/trivia_bloc_provider.dart';
 import 'package:quizlabsmock/src/root_page.dart';
 import 'package:quizlabsmock/src/ui/pages/auth_page/auth_page.dart';
 import 'package:quizlabsmock/src/ui/pages/home_page/home_page.dart';
+import 'package:quizlabsmock/src/ui/pages/landing_page/landing_page.dart';
 import 'package:quizlabsmock/src/ui/pages/settings_page.dart';
 import 'package:quizlabsmock/src/ui/pages/trivia_page/trivia_page.dart';
 import 'package:quizlabsmock/src/utils/color_utils.dart';
@@ -27,7 +28,7 @@ class QuizLabs extends StatelessWidget {
         child: UserBlocProvider(
           child: TriviaBlocProvider(
             child: MaterialApp(
-              title: 'Quiz Labs',
+              title: 'QuizLabs - A fun Trivia Quiz game about anything',
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
               locale: context.locale,
@@ -38,7 +39,9 @@ class QuizLabs extends StatelessWidget {
               ),
               initialRoute: RootPage.routeName,
               routes: {
+                '/': (context) => RootPage(),
                 RootPage.routeName: (context) => RootPage(),
+                LandingPage.routeName: (context) => LandingPage(),
                 AuthPage.routeName: (context) => AuthPage(),
                 HomePage.routeName: (context) => HomePage(userUUID: null,),
                 SettingsPage.routeName: (context) => SettingsPage(),

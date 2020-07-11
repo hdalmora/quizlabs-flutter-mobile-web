@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quizlabsmock/src/resources/repository.dart';
 import 'package:quizlabsmock/src/ui/pages/auth_page/auth_page.dart';
 import 'package:quizlabsmock/src/ui/pages/home_page/home_page.dart';
+import 'package:quizlabsmock/src/ui/pages/landing_page/landing_page.dart';
 
 import 'blocs/loading_bloc/loading_bloc.dart';
 
@@ -49,7 +50,7 @@ class _RootPageState extends State<RootPage> {
       child: StreamBuilder<FirebaseUser>(
         stream: _currentUser,
         builder: (BuildContext context, AsyncSnapshot<FirebaseUser> snapshot) {
-          return snapshot.hasData ? HomePage(userUUID: snapshot.data != null ? snapshot.data.uid : null,) : AuthPage();
+          return snapshot.hasData ? HomePage(userUUID: snapshot.data != null ? snapshot.data.uid : null,) : LandingPage();
         },
       ),
     );
