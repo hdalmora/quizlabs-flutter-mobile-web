@@ -50,7 +50,7 @@ class _RankingTabState extends State<RankingTab> {
         Positioned(
           bottom: Constants.mediaHeight(context)*.06,
           child: Container(
-            height: Constants.mediaHeight(context)*.65,
+            height: Constants.mediaHeight(context)*.70,
             decoration: new BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(25),
@@ -81,7 +81,7 @@ class _RankingTabState extends State<RankingTab> {
                   return Center(
                     child: Text(
                       "No data to show...",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white, fontSize: 25),
                     ),
                   );
 
@@ -113,40 +113,47 @@ class _RankingTabState extends State<RankingTab> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Flexible(
-                flex: 1,
+              Container(
+                width: Constants.mediaWidth(context)*.3,
                 child: Text(
                   (index+1).toString(),
                   style: Theme.of(context).textTheme.bodyText2.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 12
+                      fontSize: 22
                   ),
                 ),
               ),
 
-              Flexible(
-                flex: 4,
-                child: Text(
-                  users[index].username,
-                  style: Theme.of(context).textTheme.bodyText2.copyWith(
+              Container(
+                width: Constants.mediaWidth(context)*.3,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    users[index].username,
+                    style: Theme.of(context).textTheme.bodyText2.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 12
+                      fontSize: 22,
+                    ),
+                    textAlign: TextAlign.left,
                   ),
                 ),
               ),
 
-              Flexible(
-                flex: 2,
-                child: Text(
-                  users[index].points.toString(),
-                  style: Theme.of(context).textTheme.bodyText2.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12
+              Container(
+                width: Constants.mediaWidth(context)*.3,
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    users[index].points.toString(),
+                    style: Theme.of(context).textTheme.bodyText2.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22
+                    ),
                   ),
-                ),
+                )
               ),
             ],
           ),
@@ -157,7 +164,7 @@ class _RankingTabState extends State<RankingTab> {
         "Waiting for amazing users to show here... :D",
         style: TextStyle(
           color: Colors.white,
-          fontSize: 13
+          fontSize: 25
         ),
       ),
     ),
