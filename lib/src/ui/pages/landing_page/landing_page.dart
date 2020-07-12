@@ -55,7 +55,7 @@ class LargeChild extends StatelessWidget {
           FractionallySizedBox(
             alignment: Alignment.centerRight,
             widthFactor: .6,
-            child: Image.asset("images/phone_img.jpg", scale: 2),
+            child: Image.asset("assets/images/phone_img.jpg", scale: 2),
           ),
           FractionallySizedBox(
             alignment: Alignment.centerLeft,
@@ -137,7 +137,7 @@ class LargeChild extends StatelessWidget {
                         throw 'Could not launch $url';
                       }
                     },
-                    child: Image.asset("images/google_play_badge.png", scale: 1, height: 75),
+                    child: Image.asset("assets/images/google_play_badge.png", scale: 1, height: 75),
                   ),
 
                 ],
@@ -233,7 +233,7 @@ class SmallChild extends StatelessWidget {
                 throw 'Could not launch $url';
                 }
               },
-              child: Image.asset("images/google_play_badge.png", scale: 1, height: 75),
+              child: Image.asset("assets/images/google_play_badge.png", scale: 1, height: 75),
             ),
           ],
         ),
