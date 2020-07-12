@@ -201,7 +201,8 @@ class _HomePageState extends State<HomePage> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(22.0)),),
                               child: Container(
-                                height: Constants.mediaHeight(context)*.37,
+                                width: Constants.mediaWidth(context)*.4,
+                                height: Constants.mediaHeight(context)*.3,
                                 padding: EdgeInsets.all(15),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -384,7 +385,8 @@ class _HomePageState extends State<HomePage> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(22.0)),),
                         child: Container(
-                          height: Constants.mediaHeight(context)*.36,
+                          height: Constants.mediaHeight(context)*.3,
+                          width: Constants.mediaWidth(context)*.4,
                           padding: EdgeInsets.all(15),
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,

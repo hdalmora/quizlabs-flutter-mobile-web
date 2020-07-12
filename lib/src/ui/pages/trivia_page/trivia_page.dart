@@ -212,7 +212,7 @@ class _TriviaPageState extends State<TriviaPage> {
                       answers.shuffle();
 
                       return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -221,8 +221,8 @@ class _TriviaPageState extends State<TriviaPage> {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Container(
-                                  width: 80,
-                                  height: 30,
+                                  width: 110,
+                                  height: 40,
                                   decoration: BoxDecoration(
                                       color: ColorUtils.ORANGE_LIGHT,
                                       borderRadius: BorderRadius.all(
@@ -236,7 +236,7 @@ class _TriviaPageState extends State<TriviaPage> {
                                           .copyWith(
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 15),
+                                              fontSize: 20),
                                     ),
                                   ),
                                 ),
@@ -246,15 +246,18 @@ class _TriviaPageState extends State<TriviaPage> {
                           SizedBox(
                             height: Constants.mediaHeight(context) * .015,
                           ),
-                          Text(
-                            currentTriviaQuestion.escapedQuestion,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline4
-                                .copyWith(
-                                    color: ColorUtils.GRAY_TEXT_LIGHT,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 24),
+                          Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Text(
+                              currentTriviaQuestion.escapedQuestion,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline4
+                                  .copyWith(
+                                  color: ColorUtils.GRAY_TEXT_LIGHT,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 26),
+                            ),
                           ),
                           SizedBox(
                             height: Constants.mediaHeight(context) * .035,
@@ -297,7 +300,7 @@ class _TriviaPageState extends State<TriviaPage> {
                                               child: ButtonMain(
                                                 width: Constants.mediaWidth(
                                                         context) *
-                                                    .85,
+                                                    .4,
                                                 height: 50,
                                                 colorMain: questionSelected.questionSelected ==
                                                         answers[0]
@@ -321,15 +324,12 @@ class _TriviaPageState extends State<TriviaPage> {
                                         ),
                                         questionSelected.questionSelected == answers[0]
                                             ? Container(
-                                                margin:
-                                                    EdgeInsets.only(right: 15),
+                                                margin: EdgeInsets.only(left: Constants.mediaWidth(context) * .27),
                                                 child: Align(
                                                   alignment:
-                                                      Alignment.centerRight,
+                                                      Alignment.center,
                                                   child: ButtonMain(
-                                                    width: Constants.mediaWidth(
-                                                            context) *
-                                                        .25,
+                                                    width: Constants.mediaWidth(context) * .12,
                                                     height: 50,
                                                     colorMain:
                                                         questionSelected.selected ? questionSelected.isCorrect ? ColorUtils.GREEN_MAIN : ColorUtils.RED_DARK : ColorUtils.BLUE_MAIN,
@@ -383,7 +383,7 @@ class _TriviaPageState extends State<TriviaPage> {
                                               child: ButtonMain(
                                                 width: Constants.mediaWidth(
                                                         context) *
-                                                    .85,
+                                                    .4,
                                                 height: 50,
                                                 colorMain: questionSelected.questionSelected ==
                                                     answers[1]
@@ -407,15 +407,14 @@ class _TriviaPageState extends State<TriviaPage> {
                                         ),
                                         questionSelected.questionSelected == answers[1]
                                             ? Container(
-                                                margin:
-                                                    EdgeInsets.only(right: 15),
+                                                margin: EdgeInsets.only(left: Constants.mediaWidth(context) * .27),
                                                 child: Align(
                                                   alignment:
-                                                      Alignment.centerRight,
+                                                      Alignment.center,
                                                   child: ButtonMain(
                                                     width: Constants.mediaWidth(
                                                             context) *
-                                                        .25,
+                                                        .12,
                                                     height: 50,
                                                     colorMain:
                                                         questionSelected.selected ? questionSelected.isCorrect ? ColorUtils.GREEN_MAIN : ColorUtils.RED_DARK : ColorUtils.BLUE_MAIN,
@@ -469,7 +468,7 @@ class _TriviaPageState extends State<TriviaPage> {
                                               child: ButtonMain(
                                                 width: Constants.mediaWidth(
                                                         context) *
-                                                    .85,
+                                                    .4,
                                                 height: 50,
                                                 colorMain: questionSelected.questionSelected ==
                                                     answers[2]
@@ -493,15 +492,14 @@ class _TriviaPageState extends State<TriviaPage> {
                                         ),
                                         questionSelected.questionSelected == answers[2]
                                             ? Container(
-                                                margin:
-                                                    EdgeInsets.only(right: 15),
-                                                child: Align(
+                                          margin: EdgeInsets.only(left: Constants.mediaWidth(context) * .27),
+                                          child: Align(
                                                   alignment:
-                                                      Alignment.centerRight,
+                                                      Alignment.center,
                                                   child: ButtonMain(
                                                     width: Constants.mediaWidth(
                                                             context) *
-                                                        .25,
+                                                        .12,
                                                     height: 50,
                                                     colorMain:
                                                     questionSelected.selected ? questionSelected.isCorrect ? ColorUtils.GREEN_MAIN : ColorUtils.RED_DARK : ColorUtils.BLUE_MAIN,
@@ -555,7 +553,7 @@ class _TriviaPageState extends State<TriviaPage> {
                                               child: ButtonMain(
                                                 width: Constants.mediaWidth(
                                                         context) *
-                                                    .85,
+                                                    .4,
                                                 height: 50,
                                                 colorMain: questionSelected.questionSelected ==
                                                     answers[3]
@@ -579,15 +577,14 @@ class _TriviaPageState extends State<TriviaPage> {
                                         ),
                                         questionSelected.questionSelected == answers[3]
                                             ? Container(
-                                                margin:
-                                                    EdgeInsets.only(right: 15),
+                                                margin: EdgeInsets.only(left: Constants.mediaWidth(context) * .27),
                                                 child: Align(
                                                   alignment:
-                                                      Alignment.centerRight,
+                                                      Alignment.center,
                                                   child: ButtonMain(
                                                     width: Constants.mediaWidth(
                                                             context) *
-                                                        .25,
+                                                        .12,
                                                     height: 50,
                                                     colorMain:
                                                     questionSelected.selected ? questionSelected.isCorrect ? ColorUtils.GREEN_MAIN : ColorUtils.RED_DARK : ColorUtils.BLUE_MAIN,
@@ -658,7 +655,7 @@ class _TriviaPageState extends State<TriviaPage> {
                                             child: ButtonMain(
                                               width: Constants.mediaWidth(
                                                       context) *
-                                                  .85,
+                                                  .4,
                                               height: 50,
                                               colorMain: questionSelected.questionSelected ==
                                                   answers[0]
@@ -681,15 +678,14 @@ class _TriviaPageState extends State<TriviaPage> {
                                       ),
                                       questionSelected.questionSelected == answers[0]
                                           ? Container(
-                                              margin:
-                                                  EdgeInsets.only(right: 15),
-                                              child: Align(
+                                            margin: EdgeInsets.only(left: Constants.mediaWidth(context) * .27),
+                                            child: Align(
                                                 alignment:
-                                                    Alignment.centerRight,
+                                                    Alignment.center,
                                                 child: ButtonMain(
                                                   width: Constants.mediaWidth(
                                                           context) *
-                                                      .25,
+                                                      .12,
                                                   height: 50,
                                                   colorMain:
                                                   questionSelected.selected ? questionSelected.isCorrect ? ColorUtils.GREEN_MAIN : ColorUtils.RED_DARK : ColorUtils.BLUE_MAIN,
@@ -742,7 +738,7 @@ class _TriviaPageState extends State<TriviaPage> {
                                             child: ButtonMain(
                                               width: Constants.mediaWidth(
                                                       context) *
-                                                  .85,
+                                                  .4,
                                               height: 50,
                                               colorMain: questionSelected.questionSelected ==
                                                   answers[1]
@@ -765,15 +761,14 @@ class _TriviaPageState extends State<TriviaPage> {
                                       ),
                                       questionSelected.questionSelected == answers[1]
                                           ? Container(
-                                              margin:
-                                                  EdgeInsets.only(right: 15),
-                                              child: Align(
+                                            margin: EdgeInsets.only(left: Constants.mediaWidth(context) * .27),
+                                            child: Align(
                                                 alignment:
-                                                    Alignment.centerRight,
+                                                    Alignment.center,
                                                 child: ButtonMain(
                                                   width: Constants.mediaWidth(
                                                           context) *
-                                                      .25,
+                                                      .12,
                                                   height: 50,
                                                   colorMain:
                                                   questionSelected.selected ? questionSelected.isCorrect ? ColorUtils.GREEN_MAIN : ColorUtils.RED_DARK : ColorUtils.BLUE_MAIN,
