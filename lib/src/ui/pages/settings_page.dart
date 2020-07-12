@@ -7,6 +7,7 @@ import 'package:quizlabsmock/src/ui/widgets/button_main.dart';
 import 'package:quizlabsmock/src/utils/color_utils.dart';
 import 'package:quizlabsmock/src/utils/constants.dart';
 import 'package:quizlabsmock/src/utils/firebase_analytics_utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatefulWidget {
 
@@ -97,6 +98,13 @@ class _SettingPageState extends State<SettingsPage> {
               trailing: Icon(Icons.chevron_right),
               onTap: () async {
                 await FirebaseAnalyticsUtils.analytics.logEvent(name: 'settings_page__feature_suggestion_button_clicked');
+
+                const url = 'https://forms.gle/mWRoa1ffKpSyrHRw5';
+                if (await canLaunch(url)) {
+                  await launch(url);
+                } else {
+                  throw 'Could not launch $url';
+                }
               },
             ),
 
@@ -108,7 +116,7 @@ class _SettingPageState extends State<SettingsPage> {
                     horizontal: Constants.mediaWidth(context) * 0.073,
                     vertical: Constants.mediaHeight(context) * 0.053),
                 child: ButtonMain(
-                  width: Constants.mediaWidth(context)*.7,
+                  width: Constants.mediaWidth(context)*.3,
                   height: 50,
                   colorMain: ColorUtils.RED_DARK,
                   colorSec: ColorUtils.RED_LIGHT,
