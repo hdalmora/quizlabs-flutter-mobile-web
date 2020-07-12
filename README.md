@@ -4,6 +4,8 @@ QuizLabs is a simple but fun Trivia game quiz made with Flutter for Mobile and W
 
 ## [Download it on Playstore!](https://play.google.com/store/apps/details?id=com.henriquedalmora.quizlabsmock&hl=pt_BR)
 
+## [Play through the Web App Now!](https://quizlabs-92828.web.app/#landing_page)
+
 ## Getting Started
 
 Branch       | Status
